@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openevents.tech/organizer.v1alpha1.json",
+  "title": "Organizer",
+  "description": "The entity that is organizing the event",
+  "type": "object",
+  "properties": {
+      "kind": {
+          "description": "The kind of resource that this object describes",
+          "type": "string"
+      },
+      "name": {
+          "description": "The organizer name",
+          "type": "string"
+      }
+  },
+  "required": ["kind", "name"]
+}

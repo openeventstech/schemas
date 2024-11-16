@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openevents.tech/event.v1aplha1.json",
+  "title": "Event",
+  "description": "An event",
+  "type": "object",
+  "properties": {
+      "kind": {
+          "description": "The kind of resource that this object describes",
+          "type": "string"
+      },
+      "name": {
+          "description": "The event name",
+          "type": "string"
+      },
+      "url": {
+          "description": "The event web url",
+          "type": "string"
+      },
+      "cfp": {
+          "description": "Details for the call for participation/papers",
+          "type": "object",
+          "properties": {
+              "url": {
+                  "type": "string"
+              },
+              "from": {
+                  "type": "string"
+              },
+              "to": {
+                  "type": "string"
+              }
+          },
+          "required": ["url", "to"]
+      },
+      "tags": {
+          "description": "Tags for the product",
+          "type": "array",
+          "items": {
+              "type": "string"
+          }
+      },
+  "required": ["kind", "name"]
+}
