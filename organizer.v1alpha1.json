@@ -7,10 +7,14 @@
   "properties": {
       "kind": {
           "description": "The kind of resource that this object describes",
-          "type": "string"
+          "const": "organizer.openevents.tech/v1alpha1"
       },
       "name": {
           "description": "The organizer name",
+          "type": "string"
+      },
+      "url": {
+          "description": "The organizer web url",
           "type": "string"
       }
   },

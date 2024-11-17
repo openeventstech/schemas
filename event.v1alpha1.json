@@ -7,15 +7,70 @@
   "properties": {
       "kind": {
           "description": "The kind of resource that this object describes",
-          "type": "string"
+          "const": "event.openevents.tech/v1alpha1"
       },
       "name": {
           "description": "The event name",
           "type": "string"
       },
+      "description": {
+          "description": "The event description",
+          "type": "string"
+      },
       "url": {
           "description": "The event web url",
           "type": "string"
+      },
+      "organizer": {
+          "description": "The event organizer",
+          "type": "string"
+      },
+      "startDate": {
+          "description": "The event start date",
+          "type": "string",
+          "format": "date"
+      },
+      "startTime": {
+          "description": "The event start time",
+          "type": "string",
+          "format": "time"
+      },
+      "endDate": {
+          "description": "The event end date",
+          "type": "string",
+          "format": "date"
+      },
+      "endTime": {
+          "description": "The event end time",
+          "type": "string",
+          "format": "time"
+      },
+      "format": {
+          "enum": ["in-person", "hybrid", "virtual"]
+      },
+      "location": {
+          "description": "Location of the event",
+          "type": "object",
+          "properties": {
+              "country": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 3
+              },
+              "region": {
+                  "type": "string"
+              },
+              "postalCode": {
+                  "type": "string"
+              },
+              "locality": {
+                  "type": "string"
+              },
+              "address": {
+                  "type": "string"
+              }
+          },
+          "required": ["country", "region", "postalCode", "locality", "address"]
       },
       "cfp": {
           "description": "Details for the call for participation/papers",
@@ -33,13 +88,30 @@
           },
           "required": ["url", "to"]
       },
-      "tags": {
-          "description": "Tags for the product",
+      "topics": {
+          "description": "Topics of the event",
           "type": "array",
           "items": {
-              "type": "string"
+              "enum": [".NET", "AI/ML", "AWS", "Accessibility", "Agile", "Analytics", "Angular", "Automation", "Azure", "Backend", "Big Data", "CI/CD", "CSS", "Cloud", "Cloud Native", "Community", "Containers", "Cryptocurrencies", "Cryptography", "Data Science", "Delphi", "DevOps", "DevSecOps", "Developer Experience", "Digital", "Digital Experience", "Diversity in Tech", "Enterprise", "Flutter", "Frontend", "GameDev", "Go", "Google", "Google Cloud", "IT Career", "Industry 4.0", "Infrastructure", "Innovation", "Inspirational", "IoT", "Java", "Javascript", "Kubernetes", "Laravel", "Linux", "Metaverse", "Microfrontends", "Microservices", "Mobile", "Networking", "Node.Js", "Observability", "Open Source", "PHP", "Platform Engineering", "Product Management", "Python", "React", "Ruby", "Rust", "SW Development", "Scala", "Security", "Serverless", "Social Media", "Startup", "Swift", "Testing", "UI", "UX", "Virtualization", "Vue.js", "Web Application", "WordPress"]
           }
       }
   },
-  "required": ["kind", "name"]
+  "required": ["kind", "name", "url", "format", "startDate", "endDate"],
+  "allOf": [
+      {
+          "if": {
+              "properties": {
+                  "format": {
+                      "anyOf": [
+                          {"const": "hybrid"},
+                          {"const": "in-person"}
+                      ]
+                  }
+              }
+          },
+          "then": {
+              "required": ["location"]
+          }
+      }
+  ]
 }
