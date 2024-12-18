@@ -1,22 +1,22 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://openevents.tech/organizer.v1alpha1.json",
-  "title": "Organizer",
-  "description": "The entity that is organizing the event",
-  "type": "object",
-  "properties": {
-      "kind": {
-          "description": "The kind of resource that this object describes",
-          "const": "organizer.openevents.tech/v1alpha1"
-      },
-      "name": {
-          "description": "The organizer name",
-          "type": "string"
-      },
-      "url": {
-          "description": "The organizer web url",
-          "type": "string"
-      }
-  },
-  "required": ["kind", "name"]
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://openevents.tech/organizer.v1alpha1.json",
+    "title": "Organizer",
+    "description": "The entity that is organizing the event",
+    "type": "object",
+    "properties": {
+        "kind": {
+            "description": "The kind of resource that this object describes",
+            "const": "organizer.openevents.tech/v1alpha1"
+        },
+        "name": {
+            "description": "The organizer name",
+            "type": "string"
+        },
+        "url": {
+            "description": "The organizer web url",
+            "type": "string"
+        }
+    },
+    "required": ["kind", "name"]
 }
