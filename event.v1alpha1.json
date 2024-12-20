@@ -49,28 +49,8 @@
             "enum": ["in-person", "hybrid", "virtual"]
         },
         "location": {
-            "description": "Location of the event",
-            "type": "object",
-            "properties": {
-                "country": {
-                    "type": "string",
-                    "minLength": 3,
-                    "maxLength": 3
-                },
-                "region": {
-                    "type": "string"
-                },
-                "postalCode": {
-                    "type": "string"
-                },
-                "locality": {
-                    "type": "string"
-                },
-                "address": {
-                    "type": "string"
-                }
-            },
-            "required": ["country", "region", "postalCode", "locality", "address"]
+            "description": "The event location",
+            "type": "string"
         },
         "cfp": {
             "description": "Details for the call for participation/papers",
