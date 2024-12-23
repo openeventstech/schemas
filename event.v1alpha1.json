@@ -76,7 +76,7 @@
             }
         }
     },
-    "required": ["kind", "name", "url", "format", "startDate", "endDate"],
+    "required": ["kind", "name", "url", "startDate", "endDate", "format"],
     "allOf": [
         {
             "if": {
